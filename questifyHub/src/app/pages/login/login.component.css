@@ -1,0 +1,205 @@
+*{
+    color: white;
+}
+body{
+    background-color: #4950D4;
+}
+a{
+    text-decoration: none;
+}
+#header{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #181A3E;
+    padding: 20px;
+}
+.h_itensOne{
+    display: flex;
+    align-items: center;
+}
+.h_itensOne > span{
+    margin-right: 25px;
+}
+.h_itensOne > a{
+    margin-left: 15px;
+    margin-right: 10px;
+}
+.h_itensTwo{
+    margin-right: 80px;
+    display: flex;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.h_itensTwo > a:first-child{
+    background-color: #4950D4;
+    padding: 9px 18px 9px 18px;
+    border-radius: 20px;
+    margin-right: 14px;
+}
+.h_itensTwo > a:last-child{
+    border: 2px solid white;
+    padding: 5px 40px 5px 40px;
+    border-radius: 20px;
+}
+
+.loginBody{
+    display: flex;
+    margin-top: 50px;
+}
+
+
+.infoSet{
+    background-color: #181A3E;
+    width: 689px;
+    height: 695px;
+    border-radius: 0px 80px 80px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.infoSet > h1 {
+    width: 615px;
+    height: 230px;
+    font-size: 64px;
+}
+.infoSet > p{
+    width: 494px;
+}
+
+.infoSet > a{
+    background-color: #4950D4;
+    padding: 10px;
+    border-radius: 20px;
+}
+.infoSet > *{
+    margin-left: 115px;
+    margin-top: 0px;
+}
+
+
+
+/*Teste area Login*/
+
+.forms {
+    background-color: white;
+    text-align: center;
+    position: relative;
+    width: 479px;
+    height: 474px;
+    display: flex;
+    justify-content: center;
+    margin-left: 294px;
+    margin-top: 106px;
+    border-radius: 20px;
+}
+form {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.header >  h1 {
+    font-size: 40px;
+    color: rgba(0, 0, 0, 0.25);
+}
+.header > span{
+    font-size: 50px;
+}
+.form-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+.form-group input {
+    color: black;
+    font-size: 20px;
+    width: 330px;
+    height: 40px;
+    background: transparent;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.form-group label {
+    color: black;
+    font-size: 1vw;
+    pointer-events: none;
+    position: absolute;
+    left: 0.5vw;
+    top: 1.2vh;
+    transition: all 0.3s ease;
+}
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+    transform: translate(-15%, -140%) scale(0.9);
+}
+.missingP{
+    margin-left: 1px;
+    margin-top: 5px;
+
+    width: 330px;
+    display: flex;
+    justify-content: flex-end;
+}
+.missingP > a{
+    color: #31357C;
+}
+
+.missingP > a:hover{
+    text-decoration: underline;
+}
+
+.btnLogin{
+    width: 330px;
+    height: 40px;
+    background-color: #4950D4;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+}
+
+.btnLogin:hover{
+    background-color: #3b41b1 ;
+    cursor: pointer;
+}
+
+.registerSection{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 330px;
+    margin: 10px 0px 10px 0px;
+}
+
+.registerSection > p {
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 35vw;
+}
+.registerSection > hr{
+    margin-top: 13px;
+    width: 100%;
+}
+.btnRegister{
+    color: #4950D4;
+    width: 330px;
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #4950D4;
+    font-size: 20px;
+    margin-bottom: 16px;
+}
