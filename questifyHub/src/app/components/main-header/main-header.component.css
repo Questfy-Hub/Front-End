@@ -1,0 +1,26 @@
+.headerBody{
+    display: flex;
+    width: 100%;
+    height: 84px;
+    background-color: #181A3E;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+}
+.headerBody > h3{
+    padding: 0;
+    margin-left: 40px;
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+}
+.userIcon{
+    background-color: #4950D4;
+    border-radius: 50px;
+    margin-right: 40px;
+}
+.userIcon > span{
+    color: black;
+    font-size: 40px;
+    padding: 5px;
+}
