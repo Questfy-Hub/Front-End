@@ -9,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class SideNavbarComponent {
 
+
+
+  expand(){
+    let body = document.getElementById("nav__body")
+    body!.style.width = "200px"
+  }
+  shrink(){
+    
+  }
 }

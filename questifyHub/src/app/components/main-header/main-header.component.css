@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: space-between;
     user-select: none;
+    z-index: 1;
 }
 .headerBody > h3{
     padding: 0;

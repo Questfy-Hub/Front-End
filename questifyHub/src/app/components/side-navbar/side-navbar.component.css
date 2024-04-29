@@ -1,10 +1,11 @@
-.nav__body{
+/* .nav__body{
     background-color: #31357C;
     width: 100px;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all .2s ease;
 }
 
 span{
@@ -27,4 +28,67 @@ hr{
     border-color: black;
     height: 0px;
     outline: none;
+}
+.btnNavbar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.btnNavbar:hover{
+    background-color: #181A3E;
+}
+ */
+
+
+.sidebar{
+    height: 100vh;
+    min-height: 500px;
+    background-color: #31357C;
+    width: 80px;
+    position: fixed;
+    overflow: hidden;
+    transition: all .2s ease;
+}
+.sidebar:hover{
+    width: 300px;
+    overflow: visible;
+}
+hr{
+    width: 50%;
+    border-color: black;
+    transition: all .2s ease;
+}
+.sidebar:hover  hr{
+    width: 80%;
+}
+ul{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 0;
+}
+li a {
+    width: 280px;
+    color: white;
+    display: flex;
+    align-items: center;
+/*     justify-content: space-between; */
+    text-decoration: none;
+    padding: 10px 0;
+}
+a > svg{
+    margin-left: 5%;
+    color: white;
+    font-size: 50px;
+}
+a > span{
+    margin-left: 5%;
+    color: white;
+    font-size: 50px;
+}
+a > p{
+    font-size: 25px;
+    margin-left: 10%;
 }
