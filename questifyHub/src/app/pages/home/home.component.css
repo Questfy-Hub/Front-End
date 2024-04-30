@@ -1,5 +1,13 @@
-.placeholder{
+/* .placeholder{
     position: relative;
-    left: 50vw;
+    left: 45vw;
     top: 10vh;
+}  */
+.placeholder{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.placeholder app-user-cadastro{
+    margin-top: 10vh;
 }

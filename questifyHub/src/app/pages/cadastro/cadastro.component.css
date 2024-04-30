@@ -1,0 +1,80 @@
+form{
+    background-color: white;
+    width: 58vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 10px -5px;
+    border-radius: 10px;
+}
+
+h1{
+    text-align: center;
+    font-size: 45px;
+    color: #31357C;
+}
+
+.columns{
+    display: flex;
+    justify-content: space-around;
+}
+
+.columnOne{
+    display: flex;
+    flex-direction: column;
+}
+.columnTwo{
+    display: flex;
+    flex-direction: column;
+}
+label{
+    color: #31357C;
+    font-size: 20px;
+}
+input{
+    width: 25vw;
+    height: 4vh;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-size: 20px;
+    outline: none;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    transition: all .2s ease;
+}
+input:focus{
+    outline: 1px solid blue;
+}
+.btnGroup{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+.btnGroup > *{
+    border-radius: 10px;
+    margin-top: -20px;
+    font-size: 20px;
+    padding: 15px 60px;
+    text-decoration: none;
+}
+.voltar{
+    border: 1px solid #4950D4;
+    color: #4950D4;
+    margin-left: 2vw;
+    transition: all .2s ease;
+}
+.save{
+    border: 1px solid black;
+    background-color: #4950D4;
+    color: white;
+    margin-right: 2vw;
+    transition: all .2s ease;
+}
+.voltar:hover{
+    background-color: rgb(199, 197, 197);
+}
+.save:hover{
+    background-color: #33399b;
+}
