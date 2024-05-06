@@ -1,0 +1,83 @@
+.user__container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: 70vh;
+  width: 70vw;
+  margin-left: 5vw;
+  margin-top: 10vh;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.user__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.user__header > h1 {
+  margin-left: 30px;
+  font-size: 50px;
+}
+
+.search{
+  display: flex;
+  align-items: center;
+}
+
+.search > input {
+  height: 5vh;
+  width: 20vw;
+  margin: 20px 40px 0 0;
+  border-radius: 10px;
+  padding-left: 2.1vw;
+  font-size: 20px;
+  border: 3px solid #31357c77;
+  outline: none;
+  transition: border .2s ease;
+}
+.search > input:focus{
+  border: 3px solid #31357c;
+}
+.search > svg{
+  position: relative;
+  font-size: 30px;
+  left: 2vw;
+  top: .8vh;
+  color: #31357c77;
+}
+
+.users {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+.users > user-card {
+  margin-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
