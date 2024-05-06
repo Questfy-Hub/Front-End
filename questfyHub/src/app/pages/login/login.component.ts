@@ -24,6 +24,8 @@ export class LoginComponent {
   ngOnInit(){
     if(this.userLogged == null){
       this.Login(new User())
+    }else{
+      window.location.href = 'home'
     }
   }
 
@@ -44,7 +46,7 @@ export class LoginComponent {
       setTimeout(() =>{
         if (this.errMessage == '') {
           console.log('Logged');
-          //window.location.href=""
+          window.location.reload()
         } else {
           console.log(this.errMessage);
         }
@@ -62,8 +64,6 @@ export class LoginComponent {
         }else{
           this.errMessage = 'Wrong password!'
         }
-      }else{
-        this.errMessage = 'User not Found'
       }
     })
   }

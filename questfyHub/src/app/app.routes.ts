@@ -6,7 +6,7 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
 
 export const routes: Routes = [
     {path:"login", component: LoginComponent, pathMatch:"full"},
-    {path: "home", component: HomeComponent, children:[
+    {path: "", component: HomeComponent, children:[
         {path: "users", component: UsuariosComponent, pathMatch:"full"},
         {path: "register", component: CadastroComponent, pathMatch: "full"}
     ]},
