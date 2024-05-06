@@ -29,7 +29,7 @@
       <a href="">Comece Aqui!</a>
     </div>
     <div class="forms">
-      <form  autocomplete="off">
+      <form [formGroup]="formLogin" (ngSubmit)="onSubmit()" #formDir ="ngForm" autocomplete="off">
           <div class="header">
               <h1>LOGIN</h1>
           </div>
@@ -46,7 +46,7 @@
               </div>
               
           </div>
-          <button class="btnLogin">Entrar</button>
+          <button class="btnLogin" type="submit">Entrar</button>
           <div>
 
           </div>

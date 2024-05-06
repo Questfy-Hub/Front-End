@@ -13,5 +13,11 @@ import { RouterModule } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  ngOnInit(){
+    let userLogged = localStorage.getItem("logged")
 
+    if(userLogged == null){
+      window.location.href = 'login'
+    }
+  }
 }
