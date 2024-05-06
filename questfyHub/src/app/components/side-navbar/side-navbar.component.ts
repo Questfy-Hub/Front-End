@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { AppComponent } from '../../app.component';
+import { UserService } from '../../services/user.service';
+import { environment } from '../../../environments/environment.development';
+import { User } from '../../../user';
 
 @Component({
   selector: 'sideNavbar',
@@ -8,14 +12,12 @@ import { Component } from '@angular/core';
   styleUrl: './side-navbar.component.css'
 })
 export class SideNavbarComponent {
+  isadm: boolean = false
+
+  constructor(private userService: UserService){}
 
 
-
-  expand(){
-    let body = document.getElementById("nav__body")
-    body!.style.width = "200px"
-  }
-  shrink(){
-    
+  ngOnInit(){
+    this.isadm = this.userService.checkAdm()
   }
 }

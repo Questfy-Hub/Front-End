@@ -16,16 +16,14 @@ export class LoginComponent {
   errMessage: string = '';
   userLogged = localStorage.getItem('logged')
 
-  constructor(
-    private formBuilder: FormBuilder
-  ){}
+  constructor(private formBuilder: FormBuilder){}
 
 
   ngOnInit(){
     if(this.userLogged == null){
       this.Login(new User())
     }else{
-      window.location.href = 'home'
+      window.location.href = ''
     }
   }
 

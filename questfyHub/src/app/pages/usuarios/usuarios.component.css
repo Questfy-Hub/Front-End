@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   background-color: white;
-  height: 70vh;
-  width: 70vw;
+  height: 80vh;
+  width: 90vw;
   margin-left: 5vw;
-  margin-top: 10vh;
+  margin-top: 5vh;
   border: 2px solid black;
   border-radius: 20px;
 }
@@ -25,11 +25,23 @@
   display: flex;
   align-items: center;
 }
+.search > button{
+  height: 5vh;
+  width: 7vw;
+  background-color: #4950D4;
+  border-radius: 5px;
+  color: white;
+  font-size: 25px;
+  transition: background-color .2s ease;
+}
+.search > button:hover{
+  background-color: #3b41b1;
+}
 
 .search > input {
   height: 5vh;
   width: 20vw;
-  margin: 20px 40px 0 0;
+  margin: 0px 40px 0 0;
   border-radius: 10px;
   padding-left: 2.1vw;
   font-size: 20px;
@@ -44,7 +56,6 @@
   position: relative;
   font-size: 30px;
   left: 2vw;
-  top: .8vh;
   color: #31357c77;
 }
 
@@ -52,13 +63,12 @@
   display: flex;
   flex-direction: row;
   position: relative;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   overflow-y: scroll;
 }
 .users > user-card {
   margin-bottom: 50px;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 /* width */
 ::-webkit-scrollbar {
