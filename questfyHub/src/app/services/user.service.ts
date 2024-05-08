@@ -1,27 +1,19 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../user';
-import { environment } from '../../environments/environment.development';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class UserService{
+export class UserService {
+  private url: string;
 
-  constructor() { }
-
-
-  checkAdm(){
-    let isAdm: boolean = false;
-    environment.users.forEach((user)=>{
-      if(user.username == localStorage.getItem('logged')){
-        if(user.position.toLowerCase() == 'administrador de sistemas'){
-          isAdm = true
-        }
-      }
-    })
-    return isAdm;
+  constructor(private http: HttpClient) {
+    this.url = 'http://localhost:8080';
   }
 
-
-
+  public getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.url + '/users');
+  }
 }

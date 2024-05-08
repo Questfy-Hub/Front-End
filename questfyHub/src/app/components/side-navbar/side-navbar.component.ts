@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { AppComponent } from '../../app.component';
 import { UserService } from '../../services/user.service';
-import { environment } from '../../../environments/environment.development';
-import { User } from '../../../user';
+
 
 @Component({
   selector: 'sideNavbar',
@@ -12,12 +10,28 @@ import { User } from '../../../user';
   styleUrl: './side-navbar.component.css'
 })
 export class SideNavbarComponent {
-  isadm: boolean = false
+  isAdm: boolean = false
 
-  constructor(private userService: UserService){}
-
+  constructor(private userService: UserService){
+  }
 
   ngOnInit(){
-    this.isadm = this.userService.checkAdm()
+    this.checkAdm()
+  }
+
+  
+  checkAdm(){
+    this.userService.getUsers().subscribe((resp) => {
+      resp.forEach((user) => {
+        if(user.username == localStorage.getItem("logged")){
+          if(user.role.toLowerCase() == "administrador de sistemas"){
+            this.setIsAdm(true)
+          }
+        }
+      })
+    })
+  }
+  setIsAdm(state: boolean){
+    this.isAdm = state
   }
 }

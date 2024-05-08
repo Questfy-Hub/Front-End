@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule  } from '@angular/forms';
 import { User } from '../../../user';
-import { environment } from '../../../environments/environment.development';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginComponent {
   errMessage: string = '';
   userLogged = localStorage.getItem('logged')
 
-  constructor(private formBuilder: FormBuilder){}
+  constructor(private formBuilder: FormBuilder, private userService: UserService){}
 
 
   ngOnInit(){
@@ -25,6 +25,7 @@ export class LoginComponent {
     }else{
       window.location.href = ''
     }
+
   }
 
 
@@ -36,6 +37,7 @@ export class LoginComponent {
   }
 
   onSubmit(){
+    this.errMessage = ''
     let name = this.formLogin.controls['username'].value
     let password = this.formLogin.controls['password'].value
 
@@ -55,14 +57,22 @@ export class LoginComponent {
 
 
   checkLogin(loginInfo: any){
-    environment.users.forEach((user)=>{
-      if(user.username == loginInfo.username){
-        if(user.password == loginInfo.password){
-          localStorage.setItem('logged', user.username)
-        }else{
-          this.errMessage = 'Wrong password!'
-        }
-      }
-    })
+    try{
+      this.userService.getUsers().subscribe(res => {
+        res.forEach(user => {
+          if(user.username == loginInfo.username){
+            console.log("Usuário certo")
+            if(user.password == loginInfo.password){
+              console.log("Senha Certa")
+              localStorage.setItem("logged", user.username)
+            }else{this.errMessage = "Senha Incorreta"}
+          }else{
+            this.errMessage = "Usuário não encontrado"
+          }
+        })
+      })
+    }catch{
+      this.errMessage = "Erro Inesperado"
+    }
   }
 }

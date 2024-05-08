@@ -11,11 +11,19 @@ import { UserService } from '../../services/user.service';
   styleUrl: './usuarios.component.css'
 })
 export class UsuariosComponent {
-  users = environment.users
-
-
-  constructor(private userService: UserService){}
-
+  users: User[] = []
   
+  constructor(private userService: UserService){
+  }
+
+  ngOnInit(){
+    this.userService.getUsers().subscribe(resp => {
+      resp.forEach(user => {
+        this.users.push(user)
+      })
+    })
+  }
+
+  //TODO: Fazer fonte ser reativa ao tamanho do email, nome, etc...
 
 }

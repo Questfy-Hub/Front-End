@@ -16,6 +16,7 @@
     font-weight: 600;
 }
 .userIcon{
+    position: relative;
     background-color: #4950D4;
     border-radius: 50px;
     margin-right: 40px;
@@ -24,4 +25,10 @@
     color: black;
     font-size: 40px;
     padding: 5px;
+}
+user-popup{
+    display: none;
+    position: absolute;
+    top: 6vh;
+    left: -10vw;
 }

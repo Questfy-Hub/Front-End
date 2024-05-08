@@ -1,0 +1,55 @@
+.popup__container{
+    display: flex;
+    flex-direction: column;
+    width: 13vw;
+    background-color: white;
+    border-radius: 13px;
+    border: 2px solid #31357C;
+}
+.popup__header{
+    display: flex;
+    position: relative;
+    height: 7vh;
+    background-color: #4950D4;
+    margin-bottom: 20px;
+    border-radius: 10px 10px 0 0;
+}
+.popup__header > p{
+    position: relative;
+    color: white;
+    left: 5.4vw;
+    top: 1vh;
+    margin: 0;
+}
+.points{
+    color: white;
+    position: relative;
+    left: 7vw;
+    top: .5vh;
+}
+.points > span{
+    margin-right: .1vw;
+
+}
+#icon{
+    position: absolute;
+    border-radius: 100px;
+    top: 3vh;
+    left: 5vw;
+    height: 70px;
+    background-color: #4950D4;
+    border: 1px solid black;
+    font-size: 3.5vw;
+}
+
+.popup__content{
+    display: flex;
+    justify-content: center;
+}
+
+
+.popup__content > ul{
+
+    padding: 0px;
+    list-style-type: none;
+}

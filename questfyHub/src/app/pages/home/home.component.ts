@@ -4,11 +4,12 @@ import { MainHeaderComponent } from '../../components/main-header/main-header.co
 import { CadastroComponent } from '../cadastro/cadastro.component';
 import { RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { UserPopUpComponent } from '../../components/user-pop-up/user-pop-up.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SideNavbarComponent, MainHeaderComponent, CadastroComponent, RouterOutlet],
+  imports: [SideNavbarComponent, MainHeaderComponent, CadastroComponent, RouterOutlet, UserPopUpComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
