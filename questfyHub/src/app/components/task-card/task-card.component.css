@@ -1,0 +1,56 @@
+.taskCard__container{
+    width: 15vw;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 1px 1px 10px -5px;
+
+}
+.taskCard__container p{
+    padding: 10px;
+    margin: 0;
+}
+.color{
+    background-color: #B872FF;
+    height: 10px;
+    padding: 5px;
+    border-radius: 10px 10px 0 0;
+}
+footer{
+    display: flex;
+    position: absolute;
+    justify-content: flex-end;
+    bottom: 1vh;
+    width: 100%;
+    
+}
+footer div{
+    margin-right: 20px;
+}
+.priority{
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    width: fit-content;
+    height: 20px;
+    padding: 5px;
+}
+.end_line{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 20px;
+    padding: 5px;
+}
+.low{
+    color: green;
+}
+.mid{
+    color: rgb(255, 123, 0);
+}
+.high{
+    color: red;
+}

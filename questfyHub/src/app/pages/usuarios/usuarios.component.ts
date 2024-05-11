@@ -23,7 +23,7 @@ export class UsuariosComponent {
       })
     })
   }
-
+ 
   //TODO: Fazer fonte ser reativa ao tamanho do email, nome, etc...
 
 }

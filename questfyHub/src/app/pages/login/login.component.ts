@@ -46,7 +46,6 @@ export class LoginComponent {
       setTimeout(() =>{
         if (this.errMessage == '') {
           console.log('Logged');
-          window.location.reload()
         } else {
           console.log(this.errMessage);
         }
@@ -65,6 +64,8 @@ export class LoginComponent {
             if(user.password == loginInfo.password){
               console.log("Senha Certa")
               localStorage.setItem("logged", user.username)
+              window.location.reload()
+
             }else{this.errMessage = "Senha Incorreta"}
           }else{
             this.errMessage = "Usuário não encontrado"

@@ -1,0 +1,141 @@
+.task__container {
+  background-color: white;
+  margin-left: 5vw;
+  width: 90vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 1px 10px -5px;
+  border-radius: 10px;
+  margin-top: 4vh;
+}
+.main__header {
+  display: flex;
+  margin-left: 3vw;
+  font-size: 20px;
+  color: #31357c;
+  justify-content: space-between;
+}
+.search {
+  display: flex;
+  align-items: center;
+}
+.search button {
+  height: 5vh;
+  width: 7vw;
+  background-color: #4950d4;
+  border-radius: 5px;
+  color: white;
+  font-size: 25px;
+  transition: background-color 0.2s ease;
+}
+.search > button:hover {
+  background-color: #3b41b1;
+}
+
+.search > input {
+  height: 5vh;
+  width: 20vw;
+  margin: 0px 40px 0 0;
+  border-radius: 10px;
+  padding-left: 2.1vw;
+  font-size: 20px;
+  border: 3px solid #31357c77;
+  outline: none;
+  transition: border 0.2s ease;
+}
+.search > input:focus {
+  border: 3px solid #31357c;
+}
+
+.search > svg {
+  position: relative;
+  font-size: 30px;
+  left: 2vw;
+  color: #31357c77;
+}
+
+.task__category {
+  display: flex;
+  justify-content: space-evenly;
+}
+.task__headers {
+  display: flex;
+}
+
+.tasks {
+  width: 17vw;
+  height: 63vh;
+  box-shadow: 1px 1px 10px -5px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.task_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 83%;
+  overflow-y: scroll;
+}
+a {
+  margin-bottom: 1.5vh;
+  text-decoration: none;
+  color: black;
+}
+.header {
+  width: 100%;
+  margin: 0;
+  margin-bottom: 2vh;
+/*   box-shadow: 1px 1px 10px -5px; */
+  text-align: center;
+  padding: 2% 0;
+  border-radius: 20px 20px 0 0;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: white;
+}
+
+.pending {
+  background-color: #faf4d2;
+
+}
+.late {
+  background-color: #ffe5e5;
+
+}
+.finished {
+  background-color: #e5e8ff;
+
+}
+.approved {
+  background-color: #e5ffe8;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+/* width 
+::-webkit-scrollbar {
+  width: 10px;
+  
+}
+
+/* Track 
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+  
+}
+
+/* Handle 
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover 
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}*/

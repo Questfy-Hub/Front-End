@@ -10,5 +10,10 @@ import { User } from '../../../user';
 })
 export class UserCardComponent {
   @Input() user!: User
+  name: string = ""
 
+  ngOnInit(){
+    let nameArr = this.user.fullname.split(" ")
+    this.name = nameArr[0] + " " + nameArr[nameArr.length - 1]
+  }
 }
