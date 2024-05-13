@@ -14,12 +14,15 @@ a{
     background-color: #181A3E;
     padding: 20px;
 }
+
+
 .h_itensOne{
     display: flex;
     align-items: center;
 }
 .h_itensOne > span{
     margin-right: 25px;
+    font-size: 2.2rem;
 }
 .h_itensOne > a{
     margin-left: 15px;
@@ -27,8 +30,6 @@ a{
 }
 .h_itensTwo{
     margin-right: 80px;
-    display: flex;
-
     display: flex;
     align-items: center;
 
@@ -48,14 +49,13 @@ a{
 
 .loginBody{
     display: flex;
-    margin-top: 50px;
+    margin-top: 5vh;
 }
-
 
 .infoSet{
     background-color: #181A3E;
-    width: 689px;
-    height: 695px;
+    width: 36vw;
+    height: 74vh;
     border-radius: 0px 80px 80px 0;
     display: flex;
     justify-content: center;
@@ -64,18 +64,19 @@ a{
 }
 
 .infoSet > h1 {
-    width: 615px;
-    height: 230px;
+    width: 33vw;
+    height: 24vh;
     font-size: 64px;
 }
 .infoSet > p{
-    width: 494px;
+    width:  26.2vw;
 }
 
 .infoSet > a{
     background-color: #4950D4;
     padding: 10px;
     border-radius: 20px;
+    margin-top: 1rem;
 }
 .infoSet > *{
     margin-left: 115px;
@@ -94,14 +95,14 @@ a{
     height: 474px;
     display: flex;
     justify-content: center;
-    margin-left: 294px;
+    margin-left: 26.2vw;
     margin-top: 106px;
     border-radius: 20px;
 }
 form {
     width: 100%;
     text-align: center;
-    display: flex;
+    display: flex;  
     flex-direction: column;
     align-items: center;
 }
@@ -202,4 +203,34 @@ form {
     border: 1px solid #4950D4;
     font-size: 20px;
     margin-bottom: 16px;
+}
+
+@media only screen and (max-width: 1300px){
+    #header{
+        height: 40px;
+    }
+    .title{
+        font-size: 1.8rem !important;
+    }
+    .infoSet > h1{
+        font-size: 44px;
+    }
+    .infoSet > *{
+        margin-left: 60px;
+        margin-top: 0px;
+    }
+
+    .forms{
+        width: 430px;
+        margin-left: 20.1vw;
+        margin-top: 65px;
+    }
+
+    .form-group label {
+        font-size: 1.5vw
+    }
+    .registerSection > p {
+        width: 55vw;
+    }
+
 }
