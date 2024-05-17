@@ -37,14 +37,15 @@
           <div class="form-group">
               <input type="text" name="username" formControlName = "username" placeholder="">
               <label for="username">Usuário: </label>
+              <p class="error">{{errMessage}}</p>
           </div>
           <div class="form-group">
               <input type="password" name="password" formControlName = "password" placeholder="">
               <label for="password">Senha: </label>
               <div class="missingP">
-                <a href="" >Esqueci a senha</a>
+                <p class="error">{{errMessage}}</p>
+                <a href="">Esqueci a senha</a>
               </div>
-              
           </div>
           <button class="btnLogin" type="submit">Entrar</button>
           <div>

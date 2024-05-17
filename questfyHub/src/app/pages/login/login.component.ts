@@ -54,24 +54,47 @@ export class LoginComponent {
   }
 
 
-
   checkLogin(loginInfo: any){
+    let errList = document.querySelectorAll(".error")
+    errList.forEach((err) =>{
+      err.setAttribute("style", "opacity: 0;")
+    })
     try{
       this.userService.getUsers().subscribe(res => {
-        res.forEach(user => {
+        for(let i = 0; i < res.length; i++){
+          if(res[i].username == loginInfo.username){
+            if(res[i].password == loginInfo.password){
+              this.errMessage = ""
+              localStorage.setItem("logged", res[i].username)
+              window.location.reload()
+            }else{
+              this.errMessage = "Senha incorreta"
+              errList[1].setAttribute("style", "opacity: 1;")
+              break;
+            }
+          }else{
+            this.errMessage = "Usuário Incorreto"
+            errList[0].setAttribute("style", "opacity: 1;")
+            break;
+          }
+        }
+      })
+        /* res.forEach(user => {
           if(user.username == loginInfo.username){
             console.log("Usuário certo")
             if(user.password == loginInfo.password){
-              console.log("Senha Certa")
               localStorage.setItem("logged", user.username)
               window.location.reload()
-
-            }else{this.errMessage = "Senha Incorreta"}
+            }else{
+              this.errMessage = "Senha Incorreta"
+              errList[1].setAttribute("style", "visibility: visible;")
+            }
           }else{
             this.errMessage = "Usuário não encontrado"
+            errList[0].setAttribute("style", "visibility: visible;")
           }
         })
-      })
+      }) */
     }catch{
       this.errMessage = "Erro Inesperado"
     }

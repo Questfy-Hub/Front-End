@@ -5,7 +5,7 @@
   height: 80vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 1px 1px 10px -5px;
+  box-shadow: 1px 1px 10px -5px;  
   border-radius: 10px;
   margin-top: 4vh;
 }
@@ -77,6 +77,7 @@
   flex-direction: column;
   align-items: center;
   height: 83%;
+  width: 100%;
   overflow-y: scroll;
 }
 a {
@@ -112,30 +113,19 @@ a {
 .approved {
   background-color: #e5ffe8;
 }
-
+.dragging{
+  opacity: .5;
+}
 ::-webkit-scrollbar {
   display: none;
 }
-/* width 
-::-webkit-scrollbar {
-  width: 10px;
-  
-}
 
-/* Track 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 5px;
-  
+@media only screen and (max-width: 1300px){
+  .search > input{
+    padding-left: 2.3vw;
+  }
+  .search > svg{
+    left: 2.5vw;
+    font-size: 25px;
+  }
 }
-
-/* Handle 
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
-}
-
-/* Handle on hover 
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}*/

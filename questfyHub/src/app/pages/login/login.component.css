@@ -120,7 +120,7 @@ form {
 }
 .form-group {
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 .form-group input {
     color: black;
@@ -146,13 +146,13 @@ form {
 .form-group input:not(:placeholder-shown) + label {
     transform: translate(-15%, -140%) scale(0.9);
 }
+
 .missingP{
     margin-left: 1px;
     margin-top: 5px;
-
     width: 330px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 .missingP > a{
     color: #31357C;
@@ -204,6 +204,17 @@ form {
     font-size: 20px;
     margin-bottom: 16px;
 }
+
+.error{
+    opacity: 0;
+    display: block;
+    visibility: visible;
+    color: red;
+    margin: 0;
+    text-align: left;
+}
+
+
 
 @media only screen and (max-width: 1300px){
     #header{

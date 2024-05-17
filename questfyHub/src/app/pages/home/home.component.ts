@@ -9,16 +9,24 @@ import { UserPopUpComponent } from '../../components/user-pop-up/user-pop-up.com
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SideNavbarComponent, MainHeaderComponent, CadastroComponent, RouterOutlet, UserPopUpComponent],
+  imports: [
+    SideNavbarComponent,
+    MainHeaderComponent,
+    CadastroComponent,
+    RouterOutlet,
+    UserPopUpComponent
+  ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  ngOnInit(){
-    let userLogged = localStorage.getItem("logged")
 
-    if(userLogged == null){
-      window.location.href = 'login'
+  ngOnInit() {
+    let userLogged = localStorage.getItem('logged');
+
+    if (userLogged == null) {
+      window.location.href = 'login';
     }
   }
+
 }

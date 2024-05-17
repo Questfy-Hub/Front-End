@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './user-pop-up.component.css'
 })
 export class UserPopUpComponent {
-
-}
+  logOut(){
+    localStorage.removeItem("logged")
+    console.log(localStorage.getItem("logged"))
+  }
+} 

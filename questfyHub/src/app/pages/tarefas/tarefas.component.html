@@ -1,3 +1,4 @@
+<!--TODO: DRAG AND DROP FUNCTION-->
 <div class="task__container">
   <div class="main__header">
     <h1>Tarefas</h1>
@@ -24,34 +25,42 @@
   </div>
   <div class="task__category">
     <div class="tasks pending">
-      <p class="header" style="color: #F6B100;">Pendente</p>
-      <div class="task_list">
+      <p class="header" style="color: #f6b100">Pendente</p>
+      <div class="task_list" id="pending">
         @for (task of p; track $index) {
-          <a href=""><task-card [taskInfo]="task"></task-card></a>
+        <a href="" draggable="true" class="item"
+          ><task-card [taskInfo]="task"></task-card
+        ></a>
         }
       </div>
     </div>
     <div class="tasks late">
-      <p class="header"style="color: #A20000">Atrasado</p>
-      <div class="task_list">
+      <p class="header" style="color: #a20000">Atrasado</p>
+      <div class="task_list" id="late">
         @for (task of at; track $index) {
-          <a href=""><task-card [taskInfo]="task"></task-card></a>
+        <a href="" draggable="true" class="item"
+          ><task-card [taskInfo]="task"></task-card
+        ></a>
         }
       </div>
     </div>
     <div class="tasks finished">
-      <p class="header" style="color: #1200E5;">Concluido</p>
+      <p class="header" style="color: #1200e5">Concluido</p>
       <div class="task_list">
         @for (task of c; track $index) {
-          <a href=""><task-card [taskInfo]="task"></task-card></a>
+        <a href="" draggable="true" class="item"
+          ><task-card [taskInfo]="task"></task-card
+        ></a>
         }
       </div>
     </div>
     <div class="tasks approved">
-      <p class="header" style="color: #0C9A00;">Aprovado</p>
+      <p class="header" style="color: #0c9a00">Aprovado</p>
       <div class="task_list">
         @for (task of apr; track $index) {
-          <a href=""><task-card [taskInfo]="task"></task-card></a>
+        <a href="" draggable="true" class="item"
+          ><task-card [taskInfo]="task"></task-card
+        ></a>
         }
       </div>
     </div>

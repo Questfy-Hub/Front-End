@@ -13,7 +13,6 @@ export class MainHeaderComponent {
   open() {
     let popup = document.getElementById('user-popup');
     if (!this.isPopUpOpen) {
-      console.log(this.isPopUpOpen);
       popup!.style.display = 'flex';
 
       console.log(this.isPopUpOpen);

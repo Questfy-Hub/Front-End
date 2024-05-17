@@ -13,6 +13,7 @@ export class UserCardComponent {
   name: string = ""
 
   ngOnInit(){
+    //Separar nome 
     let nameArr = this.user.fullname.split(" ")
     this.name = nameArr[0] + " " + nameArr[nameArr.length - 1]
   }

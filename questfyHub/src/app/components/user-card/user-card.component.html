@@ -17,6 +17,11 @@
   </div>
   <div class="card__info">
     <p>{{ user.role }}</p>
-    <p>{{ user.email }}</p>
+    @if (user.email.length > 23) {
+      <p class="email">{{ user.email }}</p>
+    }@else {
+      <p>{{ user.email }}</p>
+    }
+    
   </div>
 </div>

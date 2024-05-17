@@ -31,4 +31,5 @@ user-popup{
     position: absolute;
     top: 6vh;
     left: -10vw;
+    z-index: 1000;
 }

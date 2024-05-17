@@ -45,5 +45,8 @@ input[type="checkbox"] {
   font-size: 20px;
 }
 .card__info > p {
-  margin: 10px;
+  margin: 7px;
+}
+.email{
+  font-size: 15px;
 }
