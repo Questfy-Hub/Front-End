@@ -74,25 +74,31 @@ export class TarefasComponent {
   //#endregion
 
   configDrag(){
+    let category;
     const columns = document.querySelectorAll(".task_list");
     document.addEventListener("dragstart", (e: any) =>{
       e.target.classList.add("dragging")
     });
     document.addEventListener("dragend", (e: any)=>{
       e.target.classList.remove("dragging")
+      
     })
     columns.forEach((item)=>{
       item.addEventListener("dragover", (e:any) =>{
         const dragging: any = document.querySelector(".dragging")
         const applyAfter = this.getNewPosition(item, e.clientY)
-
+        category = item.id
+        
         if(applyAfter){
-          console.log(dragging)
+          /* console.log(dragging) */
           applyAfter.insertAdjacentElement("afterend", dragging)
+          //console.log(e)
+
         }else{
-          console.log(item)
+          console.log(dragging.children[0].getAttribute("ng-reflect-task-info"))
           item.prepend(dragging);
         }
+        
       })
     })
   }
@@ -109,5 +115,10 @@ export class TarefasComponent {
       if(posY >= boxCenterY) result = ref
     }
     return result
+  }
+
+  teste(){
+    const pend = document.getElementById("pending")
+    console.log(pend?.childElementCount)
   }
 }

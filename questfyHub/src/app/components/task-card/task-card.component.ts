@@ -19,6 +19,9 @@ export class TaskCardComponent {
   ngOnInit() {
     /* this.definePriority() */
   }
+  onDragStart(event: DragEvent){
+    event.dataTransfer!.setData("text/plain", JSON.parse(this.taskInfo.status!))
+  }
 
   definePriority(){
     let priory = document.getElementById('priority');

@@ -22,14 +22,10 @@ export class SideNavbarComponent {
   
   checkAdm(){
     try{ 
-    this.userService.getUsers().subscribe((resp) => {
-      resp.forEach((user) => {
-        if(user.username == localStorage.getItem("logged")){
-          if(user.role.toLowerCase() == "administrador de sistemas"){
-            this.setIsAdm(true)
-          }
-        }
-      })
+    this.userService.getUserByEmail(localStorage.getItem("logged")).subscribe((resp) => {
+      if(resp.role.toLowerCase() == "administrador de sistemas"){
+        this.setIsAdm(true)
+      }
     })
   }catch{
     console.log("Error")

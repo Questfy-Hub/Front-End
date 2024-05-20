@@ -11,5 +11,6 @@ export class UserPopUpComponent {
   logOut(){
     localStorage.removeItem("logged")
     console.log(localStorage.getItem("logged"))
+    window.location.reload();
   }
 } 
