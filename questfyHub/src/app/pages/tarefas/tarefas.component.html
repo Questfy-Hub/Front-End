@@ -26,43 +26,34 @@
     <div class="tasks pending">
       <p class="header" style="color: #f6b100">Pendente</p>
       <div class="task_list" id="pending">
-        @for (task of p; track $index) {
-        <a href="" draggable="true" class="item"
-          ><task-card [taskInfo]="task"></task-card
-        ></a>
-        }
+        @for (task of pendent; track $index) {
+          <task-card [taskInfo]="task" draggable="true" class="item" (transfereData)="teste($event)"></task-card>
+        } 
       </div>
     </div>
     <div class="tasks late">
-      <p class="header" style="color: #a20000">Atrasado</p>
-      <div class="task_list" id="late">
-        @for (task of at; track $index) {
-        <a href="" draggable="true" class="item"
-          ><task-card [taskInfo]="task"></task-card
-        ></a>
+      <p class="header" style="color: #a20000">Em espera</p>
+      <div class="task_list" id="espera">
+        @for (task of waiting; track $index) {
+          <task-card [taskInfo]="task" draggable="true" class="item"></task-card>
         }
       </div>
     </div>
     <div class="tasks finished">
-      <p class="header" style="color: #1200e5">Concluido</p>
-      <div class="task_list">
-        @for (task of c; track $index) {
-        <a href="" draggable="true" class="item"
-          ><task-card [taskInfo]="task"></task-card
-        ></a>
+      <p class="header" style="color: #1200e5">Iniciado</p>
+      <div class="task_list" id="started">
+        @for (task of started; track $index) {
+          <task-card [taskInfo]="task" draggable="true" class="item"></task-card>
         }
       </div>
     </div>
     <div class="tasks approved">
-      <p class="header" style="color: #0c9a00">Aprovado</p>
-      <div class="task_list">
-        @for (task of apr; track $index) {
-        <a href="" draggable="true" class="item"
-          ><task-card [taskInfo]="task"></task-card
-        ></a>
+      <p class="header" style="color: #0c9a00">Concluido</p>
+      <div class="task_list" id="finished">
+        @for (task of finished; track $index) {
+          <task-card [taskInfo]="task" draggable="true" class="item"></task-card>
         }
       </div>
     </div>
   </div>
 </div>
-<button (click)="teste()">Click me</button>

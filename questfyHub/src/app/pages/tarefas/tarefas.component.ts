@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { TaskCardComponent } from '../../components/task-card/task-card.component';
 import { environment } from '../../../environments/environment.development';
 import { Task } from '../../models/tasks';
+import { TaskService } from '../../services/task.service';
 
 
 @Component({
@@ -12,66 +13,24 @@ import { Task } from '../../models/tasks';
   styleUrl: './tarefas.component.css',
 })
 export class TarefasComponent {
-  //Lista de tarefas Pendentes, Aprovadas, Atrasadas e Concluidas
-  p: Task[];
-  apr: Task[];
-  at: Task[];
-  c: Task[];
+  @ViewChild(TaskCardComponent) cardComponent!: TaskCardComponent
+  pendent: any[] = [];
+  waiting: any[] = [];
+  started: any[] = [];
+  finished: any[] = [];
 
-  constructor() {
+  constructor(private taskService: TaskService) {
     //TODO: Substituir pela logica do backend
-    this.p = this.getPendent();
-    this.apr = this.getApproved();
-    this.at = this.getLate();
-    this.c = this.getConcluded();
   }
 
   ngOnInit() {
-    console.log(this.p);
     this.configDrag();
+    this.taskService.getTasks().subscribe(resp =>{
+      resp.forEach(task =>{
+        this.checkTaskStatus(task);
+      })
+    })
   }
-
-  //#region Get Types of Task
-  getPendent() {
-    let list: Task[] = [];
-    environment.tasks.forEach((task) => {
-      if (task.status?.toLowerCase() == 'p') {
-        list.push(task);
-      }
-    });
-    return list;
-  }
-
-  getApproved() {
-    let list: Task[] = [];
-    environment.tasks.forEach((task) => {
-      if (task.status?.toLowerCase() == 'ap') {
-        list.push(task);
-      }
-    });
-    return list;
-  }
-
-  getLate() {
-    let list: Task[] = [];
-    environment.tasks.forEach((task) => {
-      if (task.status?.toLowerCase() == 'at') {
-        list.push(task);
-      }
-    });
-    return list;
-  }
-
-  getConcluded() {
-    let list: Task[] = [];
-    environment.tasks.forEach((task) => {
-      if (task.status?.toLowerCase() == 'c') {
-        list.push(task);
-      }
-    });
-    return list;
-  }
-  //#endregion
 
   configDrag(){
     let category;
@@ -86,16 +45,14 @@ export class TarefasComponent {
     columns.forEach((item)=>{
       item.addEventListener("dragover", (e:any) =>{
         const dragging: any = document.querySelector(".dragging")
+        this.cardComponent = dragging;
         const applyAfter = this.getNewPosition(item, e.clientY)
-        category = item.id
+        
         
         if(applyAfter){
-          /* console.log(dragging) */
+          category = item.id;
           applyAfter.insertAdjacentElement("afterend", dragging)
-          //console.log(e)
-
         }else{
-          console.log(dragging.children[0].getAttribute("ng-reflect-task-info"))
           item.prepend(dragging);
         }
         
@@ -117,8 +74,23 @@ export class TarefasComponent {
     return result
   }
 
-  teste(){
-    const pend = document.getElementById("pending")
-    console.log(pend?.childElementCount)
+  teste(task: Task){
+    console.log(task.status)
+  }
+  checkTaskStatus(task: any){
+    switch(task.statusTask.statusCode){
+      case 1:
+        this.pendent.push(task);
+        break;
+      case 2:
+        this.waiting.push(task);
+        break;
+      case 3:
+        this.started.push(task);
+        break;
+      case 4:
+        this.finished.push(task);
+        break;
+    }
   }
 }

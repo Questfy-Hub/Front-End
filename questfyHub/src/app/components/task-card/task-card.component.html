@@ -1,12 +1,12 @@
-<div class="taskCard__container" ondragstart="OnDragStart()">
+<div class="taskCard__container" ondragstart="OnDragStart()" (dragenter)="getTaskInfo()">
   <div class="color"></div>
   <p class="title">
     {{taskInfo.shortDescription}}
   </p>
   <footer>
-    <div class="priority" id="priority">
+    <div class="priority">
       <svg
-        [ngClass]="{'high': taskInfo.priority == 'Alta','mid': taskInfo.priority == 'Media', 'low': taskInfo.priority == 'Baixa'}"
+        [ngClass]="{'high': taskInfo.priority == 'Alta','mid': taskInfo.priority == 'Medio', 'low': taskInfo.priority == 'Baixa'}"
         xmlns="http://www.w3.org/2000/svg"
         width="1em"
         height="1em"
@@ -14,7 +14,7 @@
       >
         <path fill="currentColor" d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7z" />
       </svg>
-      <p [ngClass]="{'high': taskInfo.priority == 'Alta','mid': taskInfo.priority == 'Media', 'low': taskInfo.priority == 'Baixa'}"><strong>{{taskInfo.priority}}</strong></p>
+      <p [ngClass]="{'high': taskInfo.priority == 'Alta','mid': taskInfo.priority == 'Medio', 'low': taskInfo.priority == 'Baixa'}"><strong>{{taskInfo.priority}}</strong></p>
     </div>
     <div class="end_line">
       <svg

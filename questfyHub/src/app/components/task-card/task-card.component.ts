@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../../models/tasks';
 import { NgClass } from '@angular/common';
 
@@ -12,12 +12,9 @@ import { NgClass } from '@angular/common';
 export class TaskCardComponent {
   @Input()
   taskInfo!: Task;
-  
-  constructor(){
-  }
+  @Output() transfereData = new EventEmitter<Task>();
 
   ngOnInit() {
-    /* this.definePriority() */
   }
   onDragStart(event: DragEvent){
     event.dataTransfer!.setData("text/plain", JSON.parse(this.taskInfo.status!))
@@ -26,15 +23,19 @@ export class TaskCardComponent {
   definePriority(){
     let priory = document.getElementById('priority');
     switch (this.taskInfo.priority) {
-      case 'High':
+      case 'Alta':
         priory!.classList.add('high');
         break;
-      case 'Medium':
+      case 'Medio':
         priory!.classList.add('mid');
         break;
-      case 'Low':
+      case 'Baixa':
         priory!.classList.add('low');
     }
   }
 
+
+  getTaskInfo(){
+    this.transfereData.emit(this.taskInfo)
+  }
 }
