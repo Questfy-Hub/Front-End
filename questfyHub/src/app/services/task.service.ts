@@ -12,7 +12,7 @@ export class TaskService {
     this.url = 'http://localhost:8080/task'; 
   }
 
-  public getTasks(): Observable<any[]>{
-    return this.http.get<any[]>(this.url);
+  public getTasksByEmail(email: string): Observable<any[]>{
+    return this.http.get<any[]>(this.url+ "/" + email);
   }
 }

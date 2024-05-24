@@ -1,4 +1,4 @@
-import { Task } from '../app/models/tasks';
+/* import { Task } from '../app/models/tasks';
 import { User } from '../user';
 
 const users: User[] = [
@@ -150,8 +150,7 @@ const tasks: Task[] = [
     'C'
   ),
 ];
-
+ */
 export const environment = {
-  users,
-  tasks,
+
 };

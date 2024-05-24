@@ -16,5 +16,7 @@ export class UserCardComponent {
     //Separar nome 
     let nameArr = this.user.fullname.split(" ")
     this.name = nameArr[0] + " " + nameArr[nameArr.length - 1]
+    console.log(this.user.img)
+    //document.getElementById("userImg")?.setAttribute('src', this.user.img)
   }
 }

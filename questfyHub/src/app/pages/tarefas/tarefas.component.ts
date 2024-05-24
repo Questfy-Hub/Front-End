@@ -25,7 +25,7 @@ export class TarefasComponent {
 
   ngOnInit() {
     this.configDrag();
-    this.taskService.getTasks().subscribe(resp =>{
+    this.taskService.getTasksByEmail(localStorage.getItem("logged")!).subscribe(resp =>{
       resp.forEach(task =>{
         this.checkTaskStatus(task);
       })

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { User } from '../../../user';
 import { UserService } from '../../services/user.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -54,66 +55,31 @@ export class LoginComponent {
     }
   }
 
-  checkLogin(data: any) {
+  async checkLogin(data: any) {
     let errList = document.querySelectorAll('.error');
     errList.forEach((err) => {
       err.setAttribute('style', 'opacity: 0;');
     });
-    console.log(data);
     try {
-      this.userService.auth(data.login, data.password).subscribe(
-        (response) => {
-          console.log(response);
-          if (response.message == 'Senha inválida') {
-            this.errMessage = response.message;
-            errList[1].setAttribute("style", "opacity: 1;")
-          }else if (response.message == "Email inválido"){
-            this.errMessage = response.message;
-            errList[0].setAttribute("style", "opacity: 1;")
-          }
-          else if(response.message == "Authenticated"){
+      this.userService.auth(data.login, data.password)
+        .then(resp =>{
+          if(resp.success == true){
             this.errMessage = '';
-            localStorage.setItem('logged', data.login);
+            localStorage.setItem("logged", data.login)
             window.location.reload();
+          }else{
+            this.errMessage = resp.message
+            if(resp.message == "Senha Incorreta"){
+              errList[1].setAttribute("style", "opacity: 1")
+            }else if(resp.message == "Email incorreto" || resp.message == "Email inválido"){
+              errList[0].setAttribute("style", "opacity: 1")
+            }
           }
-        },
-        (err: HttpErrorResponse) => {
-          console.log(err);
-          this.errMessage = err.error.text;
-        }
-      );
+        })
+      
     } catch (err) {
       console.log(err);
     }
   }
 
-  /*   checkLogin(loginInfo: any){
-    let errList = document.querySelectorAll(".error")
-    errList.forEach((err) =>{
-      err.setAttribute("style", "opacity: 0;")
-    })
-    try{
-      this.userService.getUsers().subscribe(res => {
-        for(let i = 0; i < res.length; i++){
-          if(res[i].username == loginInfo.username){
-            if(res[i].password == loginInfo.password){
-              this.errMessage = ""
-              localStorage.setItem("logged", res[i].username)
-              window.location.reload()
-            }else{
-              this.errMessage = "Senha incorreta"
-              errList[1].setAttribute("style", "opacity: 1;")
-              break;
-            }
-          }else{
-            this.errMessage = "Usuário Incorreto"
-            errList[0].setAttribute("style", "opacity: 1;")
-            break;
-          }
-        }
-      })
-    }catch{
-      this.errMessage = "Erro Inesperado"
-    }
-  } */
 }

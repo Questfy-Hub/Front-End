@@ -17,13 +17,20 @@ export class UsuariosComponent {
   }
 
   ngOnInit(){
-    this.userService.getUsers().subscribe(resp => {
-      resp.forEach(user => {
-        this.users.push(user)
+    this.userService.getUsers()
+      .then(resp =>{
+        resp.forEach((user:any) => {
+          this.users.push(user)
+          user.img = `http://localhost:8080/users/image/${user.username}`
+          /* let img = this.userService.getUserImage(user.username)
+          if(img == null){
+            user.img = ""
+          }else{
+            user.img = this.userService.getUserImage(user.username)
+          }
+           */
+        });
       })
-    })
   }
  
-  //TODO: Fazer fonte ser reativa ao tamanho do email, nome, etc...
-
 }

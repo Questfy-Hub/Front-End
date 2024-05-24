@@ -1,33 +1,65 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../user';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
+import axios, { Axios, AxiosInstance } from 'axios';
+import  Swal  from 'sweetalert2'
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private url: string;
+  private axios: AxiosInstance;
 
-  constructor(private http: HttpClient) {
-    this.url = 'http://localhost:8080/users'; 
+  constructor() {
+    this.axios = axios.create({
+      baseURL: 'http://localhost:8080/users',
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
   }
 
-  public getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.url);
+  async getUsers() {
+    /* return this.http.get<User[]>(this.url); */
+    return (await this.axios.get('')).data;
   }
-  public getUserByEmail(email:any){
-    //localhost:8080/users/email/machado.gabrielevaristo@gmail.com
-    return this.http.get<User>(this.url + "/email/" + email)
+  async getUserByEmail(email: any) {
+    return (
+      await this.axios.get(`/mail`, {
+        params: { login: email },
+      })
+    ).data;
   }
-  public auth(login:string, password:string): Observable<any>{
-    const header = {
-      headers: new HttpHeaders().set('Content-Type', 'application/json')
-    }
+
+  async auth(login: string, password: string) {
     const data = {
       login: login,
-      password: password
-    }
-    return this.http.post(this.url + "/auth", data, header)
+      password: password,
+    };
+    return (await this.axios.post('auth', data)).data;
+  }
+
+  async createUser(data: FormData) {
+    return (
+      await this.axios.post(''),
+      {
+        headers: ['Content-Type', 'multipart/form-data'],
+        body: data,
+      }
+    );
+  }
+
+  async getUserImage(username: string){
+    return (await this.axios.get('/image/' + username)).data;
+  }
+
+  teste(data: FormData) {
+    return this.axios.post<FormData>('try' , data)
+    .catch(function (err){
+      Swal.fire({
+        title: 'Erro!',
+        text: (err.response.status >=400 ? "Erro interno" : ""),
+        icon: 'error',
+        confirmButtonText: 'Continuar',
+        confirmButtonColor: '#31357C',
+      })
+    })
   }
 }
