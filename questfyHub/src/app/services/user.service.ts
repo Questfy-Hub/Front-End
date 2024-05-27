@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../user';
 import axios, { Axios, AxiosInstance } from 'axios';
-import  Swal  from 'sweetalert2'
+import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root',
 })
@@ -11,7 +11,6 @@ export class UserService {
   constructor() {
     this.axios = axios.create({
       baseURL: 'http://localhost:8080/users',
-      headers: { 'Content-Type': 'multipart/form-data' },
     });
     axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
   }
@@ -46,20 +45,23 @@ export class UserService {
     );
   }
 
-  async getUserImage(username: string){
+  async getUserImage(username: string) {
     return (await this.axios.get('/image/' + username)).data;
   }
 
   teste(data: FormData) {
-    return this.axios.post<FormData>('try' , data)
-    .catch(function (err){
-      Swal.fire({
-        title: 'Erro!',
-        text: (err.response.status >=400 ? "Erro interno" : ""),
-        icon: 'error',
-        confirmButtonText: 'Continuar',
-        confirmButtonColor: '#31357C',
+    return this.axios
+      .post<FormData>('try', data, {
+        headers: { 'Content-Type': 'multipart/form-data' }
       })
-    })
+      .catch(function (err) {
+        Swal.fire({
+          title: 'Erro!',
+          text: err.response.status >= 400 ? 'Erro interno' : '',
+          icon: 'error',
+          confirmButtonText: 'Continuar',
+          confirmButtonColor: '#31357C',
+        });
+      });
   }
 }

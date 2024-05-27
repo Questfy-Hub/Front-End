@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { SideNavbarComponent } from '../../components/side-navbar/side-navbar.component';
 import { MainHeaderComponent } from '../../components/main-header/main-header.component';
 import { CadastroComponent } from '../cadastro/cadastro.component';
 import { RouterOutlet } from '@angular/router';
-import { RouterModule } from '@angular/router';
 import { UserPopUpComponent } from '../../components/user-pop-up/user-pop-up.component';
 
 @Component({
@@ -14,13 +13,12 @@ import { UserPopUpComponent } from '../../components/user-pop-up/user-pop-up.com
     MainHeaderComponent,
     CadastroComponent,
     RouterOutlet,
-    UserPopUpComponent
+    UserPopUpComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-
   ngOnInit() {
     let userLogged = localStorage.getItem('logged');
 
@@ -29,4 +27,19 @@ export class HomeComponent {
     }
   }
 
+  ngAfterViewInit() {
+    this.checkOverflow();
+  }
+
+  checkOverflow() {
+    let store = document.querySelector('app-store');
+
+    if (store) {
+      document
+        .querySelector('.content')
+        ?.setAttribute('style', 'overflow: scroll; margin-left: -5vw');
+    } else {
+      console.log('there is no store');
+    }
+  }
 }

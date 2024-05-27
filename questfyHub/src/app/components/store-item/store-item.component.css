@@ -1,0 +1,40 @@
+.item__container {
+  border: 1px solid black;
+  background-color: #4950d4;
+  width: 10vw;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.body svg {
+  font-size: 5vw;
+  color: white;
+}
+.body h1{
+  color: white;
+}
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #24275c;
+  height: 4vh;
+}
+footer span {
+  color: #5cff23;
+}
+footer button {
+  background-color: #24275c;
+  border: 1px solid #5cff23;
+  color: #5cff23;
+  height: 70%;
+  transition: background-color .2s ease;
+}
+footer button:hover {
+    background-color: #181a3f;
+}
