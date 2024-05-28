@@ -19,6 +19,11 @@ export class UserService {
     /* return this.http.get<User[]>(this.url); */
     return (await this.axios.get('')).data;
   }
+
+  async getUserByUsername(username: any){
+    return (await this.axios.get(`/${username}`)).data;
+  }
+
   async getUserByEmail(email: any) {
     return (
       await this.axios.get(`/mail`, {

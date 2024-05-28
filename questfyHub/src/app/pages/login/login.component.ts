@@ -65,7 +65,8 @@ export class LoginComponent {
         .then(resp =>{
           if(resp.success == true){
             this.errMessage = '';
-            localStorage.setItem("logged", data.login)
+            console.log(resp.userLogged)
+            localStorage.setItem("logged", resp.userLogged)
             window.location.reload();
           }else{
             this.errMessage = resp.message

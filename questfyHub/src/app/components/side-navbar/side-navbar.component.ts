@@ -1,39 +1,44 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
 
-
 @Component({
   selector: 'sideNavbar',
   standalone: true,
   imports: [],
   templateUrl: './side-navbar.component.html',
-  styleUrl: './side-navbar.component.css'
+  styleUrl: './side-navbar.component.css',
 })
 export class SideNavbarComponent {
-  isAdm: boolean = false
+  isAdm: boolean = false;
+  isGestor: boolean = false;
 
-  constructor(private userService: UserService){
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    this.checkAdm();
   }
 
-  ngOnInit(){
-    this.checkAdm()
-  }
-
-  
-  checkAdm(){
-    try{
-      console.log(this.userService.getUserByEmail(localStorage.getItem("logged")))
-      this.userService.getUserByEmail(localStorage.getItem("logged"))
-        .then(resp =>{
-          if(resp.role.toLowerCase() == "administrador de sistemas"){
-            this.setIsAdm(true)
+  checkAdm() {
+    try {
+      this.userService
+        .getUserByUsername(localStorage.getItem('logged'))
+        .then((resp) => {
+          if (resp.role.toLowerCase() == 'administrador de sistemas') {
+            this.setIsAdm(true);
+          } else if (resp.role.toLowerCase() == 'gestor') {
+            this.setIsGestor(true);
           }
-        })
-  }catch(err){
-    console.log("Error: " + err)
+        });
+    } catch (err) {
+      console.log('Error: ' + err);
+    }
   }
+
+  setIsAdm(state: boolean) {
+    this.isAdm = state;
   }
-  setIsAdm(state: boolean){
-    this.isAdm = state
+
+  setIsGestor(state: boolean) {
+    this.isGestor = state;
   }
 }

@@ -38,8 +38,6 @@ export class HomeComponent {
       document
         .querySelector('.content')
         ?.setAttribute('style', 'overflow: scroll; margin-left: -5vw');
-    } else {
-      console.log('there is no store');
     }
   }
 }

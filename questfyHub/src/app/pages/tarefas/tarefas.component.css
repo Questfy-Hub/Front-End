@@ -23,6 +23,7 @@
 .search button {
   height: 5vh;
   width: 7vw;
+  margin-right: 10vw;
   background-color: #4950d4;
   border-radius: 5px;
   color: white;
