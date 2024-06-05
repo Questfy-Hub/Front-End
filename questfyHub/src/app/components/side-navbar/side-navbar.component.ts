@@ -18,10 +18,18 @@ export class SideNavbarComponent {
     this.checkAdm();
   }
 
-  checkAdm() {
-    try {
-      this.userService
-        .getUserByUsername(localStorage.getItem('logged'))
+ async checkAdm() {
+    const loggedUser = localStorage.getItem("logged")
+    let data:any;
+    await this.userService.getUserByUsername(loggedUser).then( (resp) => {
+      data = resp
+    })
+    console.log(data)
+    if (data.role == "Gestor"){
+      this.setIsGestor(true)
+    }
+/*     try {
+      this.userService.getUserByUsername(localStorage.getItem('logged'))
         .then((resp) => {
           if (resp.role.toLowerCase() == 'administrador de sistemas') {
             this.setIsAdm(true);
@@ -29,9 +37,9 @@ export class SideNavbarComponent {
             this.setIsGestor(true);
           }
         });
-    } catch (err) {
+    }catch (err) {
       console.log('Error: ' + err);
-    }
+    } */
   }
 
   setIsAdm(state: boolean) {

@@ -1,0 +1,132 @@
+<div
+  class="graficos__container"
+  style="display: flex; width: 90vw; flex-wrap: wrap; margin-left: 15vw"
+>
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2vh;
+      margin-top: 1.5vh;
+    "
+  >
+    <select
+      name=""
+      id=""
+      style="
+        border-radius: 20px;
+        width: 18vw;
+        height: 3.5vh;
+        margin-bottom: 1vh;
+        text-align: center;
+        font-size: 20px;
+      "
+    >
+      <option value="">Teste 1</option>
+      <option value="">Teste 2</option>
+      <option value="">Teste 3</option>
+      <option value="">Teste 4</option>
+    </select>
+    <select
+      name=""
+      id=""
+      
+      style="width: 10vw; border-radius: 20px; padding: 1vh; text-align: center; font-size: 15px;   border: unset;"
+    >
+      <option value="" disabled selected> -- Select -- </option>
+      <option value="">Janeiro</option>
+      <option value="">Fevereiro</option>
+      <option value="">Março</option>
+      <option value="">Abril</option>
+      <option value="">Maio</option>
+      <option value="">Junho</option>
+      <option value="">Julho</option>
+      <option value="">Agosto</option>
+      <option value="">Setembro</option>
+      <option value="">Outubro</option>
+      <option value="">Novembro</option>
+      <option value="">Dezembro</option>
+    </select>
+  </div>
+  <div
+    style="
+      background-color: white;
+      box-shadow: 1px 1px 10px -5px;
+      border-radius: 20px;
+      width: 90%;
+    "
+  >
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 1.8vh;
+        justify-content: space-around;
+      "
+    >
+      <!--Grafico de barra 1-->
+      <section
+        style="
+          border-radius: 20px;
+          padding: 15px;
+          margin-right: 2vw;
+          width: 600px;
+        "
+      >
+        <canvas id="entregas" style="width: 600px; height: 250px"></canvas>
+      </section>
+      <!--Grafico de barra 2-->
+      <section
+        style="
+          border-radius: 20px;
+          padding: 15px;
+          margin-right: 2vw;
+          width: 600px;
+        "
+      >
+        <canvas id="atrasadas" style="width: 600px; height: 250px"></canvas>
+      </section>
+    </div>
+
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+      "
+    >
+      <!--Grafico de pizza-->
+      <section
+        style="
+          border-radius: 20px;
+          padding: 15px;
+          padding-top: 25px;
+          padding-bottom: 0;
+          margin-right: 2vw;
+          width: 500px;
+          height: 400px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <canvas id="all" style="width: 450px"></canvas>
+      </section>
+      <!--Grafico de linha-->
+      <section
+        style="
+          padding: 15px;
+          margin-right: 2vw;
+          margin-left: 5vw;
+          display: flex;
+          align-items: center;
+          width: 600px;
+        "
+      >
+        <canvas id="line" style="width: 600px; height: 250px"></canvas>
+      </section>
+    </div>
+  </div>
+</div>

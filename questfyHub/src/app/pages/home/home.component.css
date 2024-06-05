@@ -4,11 +4,15 @@
     top: 10vh;
 }  */
 .content{
+    width: 90vw;
     height: 100vh;
     display: flex;
     justify-content: center;
-    margin: 0;
+    margin-left: 4vw;
 }
 .content app-user-cadastro{
     margin-top: 10vh;
+}
+app-reports{
+    width: 500px
 }

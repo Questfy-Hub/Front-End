@@ -13,7 +13,7 @@
       <p class="header" style="color: #f6b100">Pendente</p>
       <div class="task_list" id="pending">
         @for (task of pendent; track $index) {
-          <task-card [taskInfo]="task" draggable="true" class="item" (transfereData)="teste($event)"></task-card>
+          <task-card [taskInfo]="task" draggable="true" class="item" (transfereData)="teste($event)" style="margin-bottom: 20px;"></task-card>
         } 
       </div>
     </div>
@@ -21,7 +21,7 @@
       <p class="header" style="color: #a20000">Em espera</p>
       <div class="task_list" id="espera">
         @for (task of waiting; track $index) {
-          <task-card [taskInfo]="task" draggable="true" class="item"></task-card>
+          <task-card [taskInfo]="task" draggable="true" class="item" style="margin-bottom: 20px;"></task-card>
         }
       </div>
     </div>
@@ -29,7 +29,7 @@
       <p class="header" style="color: #1200e5">Iniciado</p>
       <div class="task_list" id="started">
         @for (task of started; track $index) {
-          <task-card [taskInfo]="task" draggable="true" class="item"></task-card>
+          <task-card [taskInfo]="task" draggable="true" class="item" style="margin-bottom: 20px;"></task-card>
         }
       </div>
     </div>
@@ -37,7 +37,7 @@
       <p class="header" style="color: #0c9a00">Concluido</p>
       <div class="task_list" id="finished">
         @for (task of finished; track $index) {
-          <task-card [taskInfo]="task" draggable="true" class="item"></task-card>
+          <task-card [taskInfo]="task" draggable="true" class="item" style="margin-bottom: 20px;"></task-card>
         }
       </div>
     </div>

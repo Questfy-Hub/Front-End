@@ -1,18 +1,24 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import axios, { Axios, AxiosInstance } from 'axios';
 import { Task } from '../models/tasks';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  private url: string;
-  constructor(private http: HttpClient) {
-    this.url = 'http://localhost:8080/task'; 
+  private axios: AxiosInstance;
+  constructor() {
+    this.axios = axios.create({
+      baseURL : 'http://localhost:8080/task'
+    })
+    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+
   }
 
-  public getTasksByEmail(email: string): Observable<any[]>{
-    return this.http.get<any[]>(this.url+ "/" + email);
+  async getTaskByUsername(username: any){
+    return (await this.axios.get(`/${username}`)).data;
+  }
+  async getTasksByEmail(email: string){
+    return (await this.axios.get(`/${email}`)).data;
   }
 }

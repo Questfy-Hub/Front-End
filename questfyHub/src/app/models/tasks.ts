@@ -6,7 +6,7 @@ export class Task {
   public endLineDate: Date | undefined;
   public difficulty: number | undefined;
   public priority: string | undefined;
-  public status: string | undefined;
+  public status: any;
 
   constructor();
   constructor(
@@ -17,7 +17,7 @@ export class Task {
     endLineDate: Date,
     difficulty: number,
     priority: string,
-    status: string
+    status: any
   );
   constructor(
     shortDescription?: string,
@@ -27,7 +27,7 @@ export class Task {
     endLineDate?: Date,
     difficulty?: number,
     priority?: string,
-    status?: string
+    status?: any
   ) {
     this.shortDescription = shortDescription;
     this.longDescription = longDescription;

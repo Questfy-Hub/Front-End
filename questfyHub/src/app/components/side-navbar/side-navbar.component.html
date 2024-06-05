@@ -34,7 +34,6 @@
         </a>
       </li>
       <hr />
-      @if(isAdm){
       <li>
         <a href="users">
           <span class="material-symbols-outlined"> group </span>
@@ -42,16 +41,9 @@
         </a>
       </li>
       <hr />
+      @if(isGestor || isAdm){
       <li>
-        <a href="">
-          <span class="material-symbols-outlined"> apartment </span>
-          <p>Empresas</p>
-        </a>
-        <hr>
-      </li>
-      } @if(isGestor || isAdm){
-      <li>
-        <a href="">
+        <a href="reports">
           <span class="material-symbols-outlined"> insert_chart </span>
           <p>Relatorios</p>
         </a>

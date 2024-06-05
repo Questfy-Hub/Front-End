@@ -1,6 +1,5 @@
 import { Component} from '@angular/core';
 import { UserCardComponent } from '../../components/user-card/user-card.component';
-import { environment } from '../../../environments/environment.development';
 import { User } from '../../../user';
 import { UserService } from '../../services/user.service';
 @Component({
@@ -22,13 +21,6 @@ export class UsuariosComponent {
         resp.forEach((user:any) => {
           this.users.push(user)
           user.img = `http://localhost:8080/users/image/${user.username}`
-          /* let img = this.userService.getUserImage(user.username)
-          if(img == null){
-            user.img = ""
-          }else{
-            user.img = this.userService.getUserImage(user.username)
-          }
-           */
         });
       })
   }

@@ -18,6 +18,8 @@ export class TarefasComponent {
   started: any[] = [];
   finished: any[] = [];
   isGestor: boolean = false;
+  category: any;
+  tempTask: any
 
   constructor(
     private taskService: TaskService,
@@ -29,7 +31,16 @@ export class TarefasComponent {
   ngOnInit() {
     this.configDrag();
     //TODO: Pegar task por username
-
+    const user: string = localStorage.getItem("logged")!
+    this.taskService.getTaskByUsername(user).then(
+      resp => {
+        console.log(resp)
+        resp.forEach((task:any) => {
+          this.checkTaskStatus(task)
+        });
+      }
+    )
+    
     //Checando se é gestor
     try { 
       this.userService
@@ -45,13 +56,14 @@ export class TarefasComponent {
   }
 
   configDrag() {
-    let category;
     const columns = document.querySelectorAll('.task_list');
     document.addEventListener('dragstart', (e: any) => {
       e.target.classList.add('dragging');
     });
     document.addEventListener('dragend', (e: any) => {
       e.target.classList.remove('dragging');
+      if (this.category) {
+    }
     });
     columns.forEach((item) => {
       item.addEventListener('dragover', (e: any) => {
@@ -60,13 +72,16 @@ export class TarefasComponent {
         const applyAfter = this.getNewPosition(item, e.clientY);
 
         if (applyAfter) {
-          category = item.id;
+          this.category = item.id;
           applyAfter.insertAdjacentElement('afterend', dragging);
         } else {
           item.prepend(dragging);
+          this.category = item.id
         }
+       
       });
     });
+    
   }
 
   getNewPosition(column: any, posY: any) {
@@ -81,9 +96,13 @@ export class TarefasComponent {
     return result;
   }
 
-  teste(task: Task) {
-    console.log(task.status);
+  teste(task: any) {
+    this.tempTask = task
+    console.log(task.statusTask.statusName);
+/*     console.log(this.tempTask)
+ */    /* if(task.statusTask.statusName) */
   }
+
   checkTaskStatus(task: any) {
     switch (task.statusTask.statusCode) {
       case 1:
