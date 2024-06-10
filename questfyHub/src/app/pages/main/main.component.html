@@ -3,23 +3,32 @@
     <div class="tasks">
       <h3>Tarefas Prox. vencimento</h3>
       <div class="taskList">
-      <!--   <task-card></task-card>
-        <task-card></task-card>
-        <task-card></task-card> -->
+        @if(lastTasks.length < 1){
+          <span class="notFound">NENHUMA TAREFA ENCONTRADA...</span>
+        }@else {
+          @for(task of lastTasks; track $index){
+            <task-card [taskInfo]="task"></task-card>
+          }
+        }
       </div>
     </div>
     <div class="tasks">
-      <h3>Tarefas Prox. vencimento</h3>
+      <h3>Novas Tarefas</h3>
       <div class="taskList">
-        <!-- <task-card></task-card>
-        <task-card></task-card>
-        <task-card></task-card> -->
+        @if(newestTasks.length < 1){
+          <span class="notFound">NENHUMA TAREFA ENCONTRADA...</span>
+        }@else {
+          @for(task of newestTasks; track $index){
+            <task-card [taskInfo]="task"></task-card>
+          }
+        }
+        
       </div>
     </div>
   </div>
 
   <div class="userInfo">
-    <svg
+   <!--  <svg
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
@@ -29,12 +38,14 @@
         fill="currentColor"
         d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"
       />
-    </svg>
-    <p style="font-size: 30px">Nome completo</p>
-    <p style="font-size: 25px">Cargo</p>
+    </svg> -->
+    <img src={{userLogged.img}}  alt="">
+    <p style="font-size: 30px">{{userLogged.fullname}}</p>
+    <p style="font-size: 25px">{{userLogged.role}}</p>
+    <p>{{userLogged.points}} pontos</p>
   </div>
   <div class="ranking">
-    <div class="header"><h3>Ranking</h3></div>
+    <div class="header"><h3>Ranking Mensal</h3></div>
     <div class="podium">
       <div class="podium_item">
         <svg
@@ -48,7 +59,8 @@
             d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"
           />
         </svg>
-        <p>Teste</p>
+        <p>{{this.ranking[1].fullname}}</p>
+        <p>{{this.ranking[1].points}} pontos</p>
         <div class="rank second">
           <p>1</p>
         </div>
@@ -65,7 +77,8 @@
             d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"
           />
         </svg>
-        <p>Teste</p>
+        <p>{{this.ranking[0].fullname}}</p>
+        <p>{{this.ranking[0].points}} pontos</p>
         <div class="rank first">
           <p>1</p>
         </div>
@@ -82,7 +95,8 @@
             d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"
           />
         </svg>
-        <p>Teste</p>
+        <p>{{this.ranking[2].fullname}}</p>
+        <p>{{this.ranking[2].points}} pontos</p>
         <div class="rank third">
           <p>1</p>
         </div>

@@ -21,4 +21,10 @@ export class TaskService {
   async getTasksByEmail(email: string){
     return (await this.axios.get(`/${email}`)).data;
   }
+  async getLastTasks(username: any){
+    return (await this.axios.get(`/${username}/sorted`)).data;
+  }
+  async getNewestTasks(username: any){
+    return (await this.axios.get(`/${username}/newest`)).data;
+  }
 }

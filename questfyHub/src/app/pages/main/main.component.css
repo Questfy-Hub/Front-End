@@ -7,25 +7,31 @@
     margin-top: 3vh;
 }
 .task__container{
-    margin-right: 10vw;
+    margin-right: 25vw;
 }
 .tasks{
     border: 1px solid black;
     border-radius: 20px;
     box-shadow: 0 0 .3em;
-    margin-bottom: 3vh
+    margin-bottom: 3vh;
+    width: 34vw;
+    height: 19vh;
+    padding: 1vw;
 }
 .tasks h3{
     margin: 0;
+    margin-bottom: 1vh;
     padding-left: 20px;
+
 }
 .taskList{
     display: flex;
     flex-direction: row;
 }
 .taskList task-card{
-    padding: 1vw;
+    padding: 0 1vw;
 }
+
 
 .userInfo{
     display: flex;
@@ -37,8 +43,9 @@
     border-radius: 20px;
     box-shadow: 0 0 .3em;
 }
-.userInfo svg{
-    font-size: 15vw;
+.userInfo img{
+    width: 11vw;
+    border-radius: 40px;
 }
 
 .ranking{
@@ -112,6 +119,10 @@
     display: flex;
     justify-content: center;
     margin-top: 3vh;
+}
+
+.notFound{
+    padding-left: 2vw;
 }
 /** Main container
 .main__container{

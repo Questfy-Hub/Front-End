@@ -1,10 +1,4 @@
-/* .placeholder{
-    position: relative;
-    left: 45vw;
-    top: 10vh;
-}  */
 .content{
-    width: 90vw;
     height: 100vh;
     display: flex;
     justify-content: center;

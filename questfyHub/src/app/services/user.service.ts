@@ -50,7 +50,7 @@ export class UserService {
     );
   }
 
-  async getUserImage(username: string) {
+  async getUserImage(username: any) {
     return (await this.axios.get('/image/' + username)).data;
   }
 
@@ -69,4 +69,6 @@ export class UserService {
         });
       });
   }
+
+
 }

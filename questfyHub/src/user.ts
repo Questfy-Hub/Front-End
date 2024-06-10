@@ -6,11 +6,12 @@ export class User{
     public role: any;
     public cpf: any;
     public img: any;
+    public points: any;
 
     constructor()
     constructor(fullname: string, username: string, email: string, password: string, role: string, cpf: string, img:any)
     constructor(fullname?: string, username?: string, email?: string, 
-        password?: string, role?: string,cpf?: string, img?: any) {
+        password?: string, role?: string,cpf?: string, img?: any, points?: any) {
         
             this.fullname = fullname;
             this.username = username;
@@ -19,6 +20,7 @@ export class User{
             this.role = role;
             this.cpf = cpf;
             this.img = img;
+            this.points = points;
     }
 
     

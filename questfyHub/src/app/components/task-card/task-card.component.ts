@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
 import { Task } from '../../models/tasks';
-import { NgClass } from '@angular/common';
+import { formatDate, NgClass } from '@angular/common';
 
 @Component({
   selector: 'task-card',
@@ -37,5 +37,10 @@ export class TaskCardComponent {
 
   getTaskInfo(){
     this.transfereData.emit(this.taskInfo)
+  }
+
+  getFormattedDate(date: any){
+    let data = new Date(date)
+    return `${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`
   }
 }
