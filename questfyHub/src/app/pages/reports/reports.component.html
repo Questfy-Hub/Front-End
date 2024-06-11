@@ -22,10 +22,9 @@
         font-size: 20px;
       "
     >
-      <option value="">Teste 1</option>
-      <option value="">Teste 2</option>
-      <option value="">Teste 3</option>
-      <option value="">Teste 4</option>
+      @for (user of userList; track $index) {
+      <option value="{{ user.fullname }}">{{ user.fullname }}</option>
+      }
     </select>
     <select
       name=""

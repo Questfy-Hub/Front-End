@@ -54,6 +54,11 @@ export class UserService {
     return (await this.axios.get('/image/' + username)).data;
   }
 
+  async getUsersByGestor(gestor: any){
+    return (await this.axios.get('/by/gestor', {params: {'gestor': gestor}})).data;
+  }
+
+
   teste(data: FormData) {
     return this.axios
       .post<FormData>('try', data, {

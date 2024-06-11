@@ -60,7 +60,6 @@ export class MainComponent {
     this.userService.getUserByUsername(localStorage.getItem("logged"))
       .then( (resp) => {
           this.userLogged = resp
-          console.log(this.userLogged.img)
           this.userLogged.img = `http://localhost:8080/users/image/${this.userLogged.username}`
       })
   }

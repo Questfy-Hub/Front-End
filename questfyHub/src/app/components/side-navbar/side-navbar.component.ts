@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'sideNavbar',
@@ -12,41 +13,16 @@ export class SideNavbarComponent {
   isAdm: boolean = false;
   isGestor: boolean = false;
 
-  constructor(private userService: UserService) {}
+  constructor() {}
 
   ngOnInit() {
     this.checkAdm();
   }
 
  async checkAdm() {
-    const loggedUser = localStorage.getItem("logged")
-    let data:any;
-    await this.userService.getUserByUsername(loggedUser).then( (resp) => {
-      data = resp
-    })
-    console.log(data)
-    if (data.role == "Gestor"){
-      this.setIsGestor(true)
+    let data: any = await environment.logged;
+    if(data.role == "Gestor"){
+      this.isGestor = true;
     }
-/*     try {
-      this.userService.getUserByUsername(localStorage.getItem('logged'))
-        .then((resp) => {
-          if (resp.role.toLowerCase() == 'administrador de sistemas') {
-            this.setIsAdm(true);
-          } else if (resp.role.toLowerCase() == 'gestor') {
-            this.setIsGestor(true);
-          }
-        });
-    }catch (err) {
-      console.log('Error: ' + err);
-    } */
-  }
-
-  setIsAdm(state: boolean) {
-    this.isAdm = state;
-  }
-
-  setIsGestor(state: boolean) {
-    this.isGestor = state;
   }
 }

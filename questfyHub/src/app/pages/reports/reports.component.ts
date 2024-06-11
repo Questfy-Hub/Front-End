@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { count } from 'rxjs';
+import { UserService } from '../../services/user.service';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-reports',
@@ -10,7 +12,13 @@ import { count } from 'rxjs';
   styleUrl: './reports.component.css',
 })
 export class ReportsComponent {
-  ngOnInit() {
+  userList: any
+
+  constructor(private userService: UserService){}
+  async ngOnInit() {
+    let user = await environment.logged
+    this.userList = await this.userService.getUsersByGestor(user.fullname)
+    console.log(this.userList)
     const ctx1 = <HTMLCanvasElement>document.getElementById('entregas');
     const ctx2 = <HTMLCanvasElement>document.getElementById('atrasadas');
     const ctx3 = <HTMLCanvasElement>document.getElementById('all');

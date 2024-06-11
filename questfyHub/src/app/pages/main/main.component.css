@@ -47,7 +47,9 @@
     width: 11vw;
     border-radius: 40px;
 }
-
+.userInfo > p{
+    margin: 0;
+}
 .ranking{
     display: flex;
     margin-bottom: 15vh;
