@@ -8,7 +8,7 @@ Antes de começar, certifique-se de que todos os pré-requisitos abaixo sejam at
 
 -   Ter instalado o JDK (?v) <!--Conferir versão certinha-->
 -   Ter instalado o banco de dados **Postgresql**
--   Ter instalado o framework Angular (17v) (Opcioonal); <!--Conferir versão certinha-->
+-   Ter instalado o framework Angular (17v) (Opcional); <!--Conferir versão certinha-->
 -   Ter importado o modelo de banco de dados disponibilziado em [Links Uteis]() <!--Colocar link que leve para a seção de links uteis-->
 
 > Observação: O terceiro requisito se tornou opcional pois agora o FrontEnd do projeto está sendo hospedado na plataforma Netlify.
