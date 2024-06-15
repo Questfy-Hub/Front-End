@@ -1,6 +1,6 @@
 # QuestfyHub (Placeholder)
 
-A plataforma _**QuestfyHub**_ é um projeto criado como projeto semestral da UC "Estrutura de Dados e Análise de Algoritmos" da universidade UNA. O mesmo consistem em um gerenciador de tarefas com elementos de gamificação para utilização empresarial.
+A plataforma _**QuestfyHub**_ é um projeto criado como projeto semestral da UC "Estrutura de Dados e Análise de Algoritmos" da universidade UNA. O mesmo consiste em um gerenciador de tarefas com elementos de gamificação para utilização empresarial.
 
 ## :rocket: Pré-requisitos <!--Tag funciona no github para emoji-->
 
