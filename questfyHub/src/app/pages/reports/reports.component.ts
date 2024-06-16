@@ -3,6 +3,7 @@ import Chart from 'chart.js/auto';
 import { count } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { environment } from '../../../environments/environment.development';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-reports',
@@ -13,30 +14,44 @@ import { environment } from '../../../environments/environment.development';
 })
 export class ReportsComponent {
   userList: any
+  userSelected: any
+  tarefasList: any
 
-  constructor(private userService: UserService){}
+  chartList: any[] = []
+
+  entregue: any[] = []
+  onhold: any[] = []
+  atrasada: any[] = []
+  pendente: any[] = []
+  aprovadas: any[] = []
+
+  constructor(private userService: UserService, private taskService: TaskService){}
   async ngOnInit() {
     let user = await environment.logged
     this.userList = await this.userService.getUsersByGestor(user.fullname)
-    console.log(this.userList)
+    const selector = (document.getElementById("monthSelector")) as HTMLSelectElement;
+    this.taskService.getTaskByUsernameAndMonth(user.username, Number(selector.value))
+
+
     const ctx1 = <HTMLCanvasElement>document.getElementById('entregas');
     const ctx2 = <HTMLCanvasElement>document.getElementById('atrasadas');
     const ctx3 = <HTMLCanvasElement>document.getElementById('all');
     const ctx4 = <HTMLCanvasElement>document.getElementById('line');
+
     //Criando grafico entregue x pendente
-    new Chart(ctx1, {
+    this.chartList.push(new Chart(ctx1, {
       type: 'bar',
       data: {
         labels: ['Tarefas'],
         datasets: [
           {
             label: 'Entregue',
-            data: [46],
+            data: [this.entregue.length],
             backgroundColor: '#0066FF',
           },
           {
             label: 'Pendetes',
-            data: [20],
+            data: [this.pendente.length],
             backgroundColor: '#FCCF03',
           },
         ],
@@ -66,22 +81,22 @@ export class ReportsComponent {
           },
         },
       },
-    });
+    }));
 
     //Criando grafico entregue x atrasada
-    new Chart(ctx2, {
+    this.chartList.push(new Chart(ctx2, {
       type: 'bar',
       data: {
         labels: ['Tarefas'],
         datasets: [
           {
             label: 'Entregue',
-            data: [46],
+            data: [this.entregue.length],
             backgroundColor: '#0066FF',
           },
           {
             label: 'Atrasadas',
-            data: [20],
+            data: [this.atrasada.length],
             backgroundColor: '#FF0000',
           },
         ],
@@ -110,16 +125,16 @@ export class ReportsComponent {
           },
         },
       },
-    });
+    }));
     //Criando grafico de pizza
-    new Chart(ctx3, {
+    this.chartList.push(new Chart(ctx3, {
       type: 'pie',
       data: {
         labels: ['Entregues', 'Aprovados', 'Pendentes', 'Em espera'],
         datasets: [
           {
             label: 'Tarefas',
-            data: [46, 20, 10, 22],
+            data: [this.entregue.length, this.aprovadas.length, this.pendente.length, this.onhold.length],
 
             backgroundColor: [
               'rgb(0, 102, 255)',
@@ -154,9 +169,9 @@ export class ReportsComponent {
           }
         },
       }
-    });
+    }));
     //Criando Grafico de Linhas
-    new Chart(ctx4, {
+    this.chartList.push(new Chart(ctx4, {
       type: 'line',
       data: {
         labels: Array.from(Array(11).keys()),
@@ -207,6 +222,79 @@ export class ReportsComponent {
           }
         }
       }
+    }));
+  }
+
+  async onInfoChange(){
+    this.pendente = []
+    this.atrasada = []
+    this.onhold = []
+    this.entregue = []
+    this.aprovadas = []
+    this.userSelected = ((document.getElementById("userSelection")) as HTMLSelectElement).value
+    const selector = (document.getElementById("monthSelector")) as HTMLSelectElement;
+    this.tarefasList = await this.taskService.getTaskByUsernameAndMonth(this.userSelected, Number(selector.value))
+    if(this.tarefasList.length > 0){
+      this.tarefasList.forEach((task: any) => {        
+        switch(task.statusTask.statusCode){
+          case 1:
+            if(new Date(task.endLineDate) < new Date()){
+              this.atrasada.push(task)
+            }
+            this.pendente.push(task);
+            break;
+          case 2:
+            this.onhold.push(task)
+            break;
+          case 3:
+            if(new Date(task.endLineDate) < new Date()){
+              this.atrasada.push(task)
+            }
+            break;
+          case 4: 
+            this.entregue.push(task);
+            break;
+          case 5: 
+            this.aprovadas.push(task);
+            break;
+        }
+      });
+    }
+    this.updateData()
+  }
+
+  updateData(){
+    this.chartList.forEach(element => {
+      console.log(element.data)
     });
+    //Entregue Update
+    this.chartList[0].data.datasets[0].data[0] = this.entregue.length
+    this.chartList[1].data.datasets[0].data[0] = this.entregue.length
+    this.chartList[2].data.datasets[0].data[0] = this.entregue.length
+    //Pendente
+    this.chartList[0].data.datasets[1].data[0] = this.pendente.length 
+    this.chartList[2].data.datasets[0].data[2] = this.pendente.length
+
+    //Atrasada
+    this.chartList[1].data.datasets[1].data[0] = this.atrasada.length
+
+    //Em espera
+    this.chartList[2].data.datasets[0].data[3] = this.onhold.length
+
+    //Aprovadp
+    this.chartList[2].data.datasets[0].data[1] = this.aprovadas.length
+    //Atualizando tudo
+    this.chartList[0].update()
+    this.chartList[1].update()
+    this.chartList[2].update()
+    this.chartList[3].update()
+  }
+  getTaskListOnMonth(task: any){
+    let date: any
+    switch(task.statusTask.statusCode){
+
+    }
   }
 }
+
+

@@ -53,6 +53,9 @@ export class MainComponent {
         resp.forEach((user:any) => {
           let temp = user.fullname.split(" ")
           user.fullname = temp[0] + " " + temp[temp.length-1]
+
+          user.img = `http://localhost:8080/users/image/${user.username}`
+
         });
         this.ranking.push(resp[0], resp[1], resp[2])
       })

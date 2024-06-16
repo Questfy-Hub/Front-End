@@ -61,7 +61,7 @@ export class UserService {
 
   teste(data: FormData) {
     return this.axios
-      .post<FormData>('try', data, {
+      .post<FormData>('create', data, {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
       .catch(function (err) {

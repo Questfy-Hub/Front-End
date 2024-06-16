@@ -7,14 +7,14 @@
     margin-top: 3vh;
 }
 .task__container{
-    margin-right: 25vw;
+    margin-right: 9vw;
 }
 .tasks{
     border: 1px solid black;
     border-radius: 20px;
     box-shadow: 0 0 .3em;
     margin-bottom: 3vh;
-    width: 34vw;
+    width: 50vw;
     height: 19vh;
     padding: 1vw;
 }
@@ -75,8 +75,9 @@
     text-align: center;
     margin: 0;
 }
-.podium_item svg{
-    font-size: 50px;
+.podium_item img{
+    width: 50px;
+    border-radius: 10px;
 }
 .header h3{
     margin: 0;

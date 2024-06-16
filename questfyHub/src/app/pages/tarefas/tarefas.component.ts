@@ -12,7 +12,7 @@ import { UserService } from '../../services/user.service';
   styleUrl: './tarefas.component.css',
 })
 export class TarefasComponent {
-  @ViewChild(TaskCardComponent) cardComponent!: TaskCardComponent;
+  @ViewChild(TaskCardComponent) cardComponent!: HTMLElement;
   pendent: any[] = [];
   waiting: any[] = [];
   started: any[] = [];
@@ -62,21 +62,24 @@ export class TarefasComponent {
     });
     document.addEventListener('dragend', (e: any) => {
       e.target.classList.remove('dragging');
-      if (this.category) {
-    }
+      console.log(this.tempTask)
+      console.log(this.category)
+      this.taskService.updateTask(this.tempTask)
     });
     columns.forEach((item) => {
       item.addEventListener('dragover', (e: any) => {
-        const dragging: any = document.querySelector('.dragging');
+        const dragging: HTMLElement = document.querySelector('.dragging')!;
         this.cardComponent = dragging;
         const applyAfter = this.getNewPosition(item, e.clientY);
 
         if (applyAfter) {
           this.category = item.id;
           applyAfter.insertAdjacentElement('afterend', dragging);
+          
         } else {
           item.prepend(dragging);
           this.category = item.id
+          
         }
        
       });
@@ -99,8 +102,6 @@ export class TarefasComponent {
   teste(task: any) {
     this.tempTask = task
     console.log(task.statusTask.statusName);
-/*     console.log(this.tempTask)
- */    /* if(task.statusTask.statusName) */
   }
 
   checkTaskStatus(task: any) {
@@ -121,5 +122,7 @@ export class TarefasComponent {
   }
 
 
-
+  updateTask(){
+    
+  }
 }

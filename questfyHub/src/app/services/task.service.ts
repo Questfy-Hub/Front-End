@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import axios, { Axios, AxiosInstance } from 'axios';
-import { Task } from '../models/tasks';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +25,12 @@ export class TaskService {
   }
   async getNewestTasks(username: any){
     return (await this.axios.get(`/${username}/newest`)).data;
+  }
+  async getTaskByUsernameAndMonth(username: any, month: number){
+    return (await this.axios.get(`/user/${username}/month/${month}`)).data;
+  }
+  async updateTask(task:any){
+    console.log(typeof(task.userTask))
+    return this.axios.patch(`/${task.taskCode}`, task, {headers: {"Content-Type": "application/json"}})
   }
 }
