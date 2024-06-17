@@ -48,7 +48,19 @@
 .popup__content > ul {
   padding: 0px;
   list-style-type: none;
+  text-align: center;
 }
+
+.out{
+  border: none;
+  width: 5vw;
+  margin-top: 10px;
+  transition: background-color .2s ease;
+}
+.out:hover{
+  background-color: rgb(197, 196, 196);
+}
+
 
 @media only screen and (max-width: 1300px) {
   .popup__container {
@@ -65,3 +77,5 @@
     font-size: 10px;
   }
 }
+
+

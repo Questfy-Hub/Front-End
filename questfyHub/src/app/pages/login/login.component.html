@@ -1,5 +1,4 @@
 <body>
-
   <div id="header">
     <div class="h_itensOne">
       <span class="title">Questfy Hub</span>
@@ -11,54 +10,58 @@
       <a href="">Fale conosco</a>
       <a href="">FAQ</a>
     </div>
-
   </div>
 
   <div class="loginBody">
     <div class="infoSet">
       <h1>Impulsione sua empresa com a Questfy Hub</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        Transforme suas ideias em ações e suas ações em resultados. Conecte-se
+        agora e comece a fazer a diferença! Na nossa plataforma de gerenciamento
+        de tarefas, acreditamos que cada ideia tem o potencial de se transformar
+        em algo grandioso. Faça login para começar a aproveitar todas essas
+        funcionalidades e muito mais. Transforme seu potencial em produtividade
+        e veja suas ideias ganharem vida.
       </p>
       <a href="">Comece Aqui!</a>
     </div>
     <div class="forms">
-      <form [formGroup]="formLogin" (ngSubmit)="onSubmit()" #formDir ="ngForm" autocomplete="off">
-          <div class="header">
-              <h1>LOGIN</h1>
-          </div>
-          
-          <div class="form-group">
-              <input type="text" name="login" formControlName = "login" placeholder="">
-              <label for="login">Usuário: </label>
-              <p class="error">{{errMessage}}</p>
-          </div>
-          <div class="form-group">
-              <input type="password" name="password" formControlName = "password" placeholder="">
-              <label for="password">Senha: </label>
-              <div class="missingP">
-                <p class="error">{{errMessage}}</p>
-                <a href="">Esqueci a senha</a>
-              </div>
-          </div>
-          <button class="btnLogin" type="submit">Entrar</button>
-          <div>
+      <form
+        [formGroup]="formLogin"
+        (ngSubmit)="onSubmit()"
+        #formDir="ngForm"
+        autocomplete="off"
+      >
+        <div class="header">
+          <h1>LOGIN</h1>
+        </div>
 
+        <div class="form-group">
+          <input
+            type="text"
+            name="login"
+            formControlName="login"
+            placeholder=""
+          />
+          <label for="login">Usuário: </label>
+          <p class="error">{{ errMessage }}</p>
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            name="password"
+            formControlName="password"
+            placeholder=""
+          />
+          <label for="password">Senha: </label>
+          <div class="missingP">
+            <p class="error">{{ errMessage }}</p>
+            <a href="">Esqueci a senha</a>
           </div>
-
-          <div class="registerSection">
-            <hr style="color: black; ">
-            <p>Não possui cadastro?</p>
-            <hr style="color: black;">
-          </div>
-          <button class="btnRegister">SOLICITAR CADASTRO</button>
+        </div>
+        <button class="btnLogin" type="submit">Entrar</button>
+        <div></div>
       </form>
-  </div>
+    </div>
   </div>
 </body>
