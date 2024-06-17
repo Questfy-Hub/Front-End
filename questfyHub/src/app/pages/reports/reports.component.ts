@@ -289,12 +289,7 @@ export class ReportsComponent {
     this.chartList[2].update()
     this.chartList[3].update()
   }
-  getTaskListOnMonth(task: any){
-    let date: any
-    switch(task.statusTask.statusCode){
-
-    }
-  }
+  
 }
 
 
