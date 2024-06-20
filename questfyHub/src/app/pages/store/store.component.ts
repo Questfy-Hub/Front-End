@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { StoreItemComponent } from '../../components/store-item/store-item.component';
 import { StoreSpecialComponent } from '../../components/store-special/store-special.component';
 import { UserService } from '../../services/user.service';
+import { GiftsService } from '../../services/gifts.service';
 
 @Component({
   selector: 'app-store',
@@ -12,11 +13,15 @@ import { UserService } from '../../services/user.service';
 })
 export class StoreComponent {
   isAdm: boolean = false;
-  constructor(private userService: UserService){
-
+  itemList: any
+  constructor(private userService: UserService,
+    private giftService: GiftsService
+  ){
   }
-  ngOnInit(){
+  async ngOnInit(){
     this.checkAdm();
+    this.itemList = await this.giftService.getGifts();
+    console.log(this.itemList)
   }
   checkAdm() {
     try {

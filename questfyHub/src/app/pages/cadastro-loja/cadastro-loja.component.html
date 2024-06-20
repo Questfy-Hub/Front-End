@@ -1,0 +1,54 @@
+<form action=""[formGroup]="createGift" enctype="multipart/form-data" (ngSubmit)="onSubmit()">
+    <h1>Cadastro de item</h1>
+    <div class="columns">
+        <div class="data">
+            <label for="">Nome do item</label>
+            <input type="text" name="" id="" formControlName = "giftName" placeholder="Item...">
+            <label for="">Preço</label>
+            <input type="number" name="" id="" placeholder="00 pontos" formControlName = "price">
+            <label for="">Categoria</label>
+            <select name="" id="" formControlName="category">
+                <option value="" disabled selected>Selecione uma categoria</option>
+                <option value="Escritorio">Escritorio</option>
+                <option value="Roupa">Roupa</option>
+                <option value="Voucher">Voucher</option>
+                <option value="Outros">Outros</option>
+            </select>
+        </div>
+        <div class="userImage_container">
+            @if (imgSrc == null) {
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="0.88em"
+                  height="1em"
+                  viewBox="0 0 448 512"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128m89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4"
+                  />
+                </svg>
+                }@else {
+                <img
+                  [src]="imgSrc"
+                  alt="Image Preview..."
+                  height="200"
+                  draggable="false"
+                />
+                }
+          <input type="file" name="" (change)="onFileSelected($event)"/>
+        </div>
+    </div>
+
+    <div class="btnGroup">
+        <button class="voltar" onclick="window.location.href ='users'">Voltar</button>
+        <button type="submit" class="save">Salvar</button>
+      </div>
+
+
+
+
+</form>
+
+
+<button (click)="teste()">Teste</button>

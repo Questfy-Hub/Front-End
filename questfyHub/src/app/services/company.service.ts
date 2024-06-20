@@ -19,4 +19,8 @@ export class CompanyService {
   async getCompanies(){
     return (await this.axios.get('/teste')).data;
   }
+
+  async getCompanyById(id: any){
+    return (await this.axios.get(`/${id}`)).data;
+  }
 }

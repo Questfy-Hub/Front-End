@@ -1,7 +1,7 @@
 .item__container {
   border: 1px solid black;
   background-color: #4950d4;
-  width: 10vw;
+  width: 15vw;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -10,10 +10,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.body svg {
-  font-size: 5vw;
   color: white;
+}
+.body img {
+  width: 8vw;
+  margin-top: 2vh;
 }
 .body h1{
   color: white;
